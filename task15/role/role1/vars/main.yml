@@ -1,0 +1,7 @@
+---
+# vars file for role1
+soft1: mariadb
+
+soft2: 
+        - php
+        - vsftpd

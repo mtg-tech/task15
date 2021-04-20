@@ -1,0 +1,16 @@
+---
+# tasks file for role1
+- name: Installing software mariadb in node1
+  yum:
+          name: "{{ soft1 }}"
+          state: present
+  when: inventory_hostname in groups['demo1']
+
+- name: Installing software in node2
+  yum:
+          name: "{{ item }}"
+          state: present
+  loop: "{{ soft2 }}"
+  when: inventory_hostname in groups['demo2']
+
+

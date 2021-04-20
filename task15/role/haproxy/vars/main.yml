@@ -1,0 +1,8 @@
+---
+# vars file for haproxy
+
+
+
+LoadBlancer_port: 8080
+Httpd_Server_port: 80
+

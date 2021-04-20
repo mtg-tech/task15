@@ -1,0 +1,27 @@
+---
+# tasks file for apache
+- name: "Installing httpd Package"
+  package:
+          name: "{{ package_name }}"
+          state: present
+
+- name: "Enabling ans starting the service on boot by giving cmd in .bashrc file"
+  command: echo -e "systemctl enable {{ package_name }} --now" >> /root/.bashrc
+
+- name: "starting service firewalld, if not started and enabling"
+  service:
+          name: "{{ package_name }}"
+          state: started
+          enabled: yes
+
+          #- name: "setting the firewalld rule"
+          #  firewalld:
+          # port: 80/tcp
+          #permanent: yes
+          #immediate: yes
+          #state: enabled
+
+- name: "coping the content"
+  template:
+          src: "index.html.j2"
+          dest: "{{ root_directory }}/index.html"

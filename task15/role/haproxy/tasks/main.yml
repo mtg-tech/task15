@@ -1,0 +1,17 @@
+---
+  - name: Install Haproxy server
+    package:
+            name: haproxy
+            state: latest
+
+  - name: copy configuration file in haproxy
+    template:
+                 src: haproxy.cfg
+                 dest: /etc/haproxy/haproxy.cfg
+
+               
+  - name: start HAPROXY
+    service:
+                name: haproxy
+                state: started
+                enabled: yes

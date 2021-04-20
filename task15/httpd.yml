@@ -1,0 +1,4 @@
+- hosts: Httpd_Server
+  roles:
+          - apache
+         

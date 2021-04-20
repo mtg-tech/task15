@@ -1,0 +1,5 @@
+- hosts: Load_Balancer_Server
+  roles:
+
+        - haproxy  
+
